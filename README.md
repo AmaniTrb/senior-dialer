@@ -21,8 +21,9 @@ only thing on the phone.
 
 ## Screenshots
 
-*(add a few screenshots here once you have the app running — a photo
-of the main contacts screen is the most useful one)*
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
 
 ## Getting started
 
