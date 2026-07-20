@@ -81,7 +81,7 @@ will need help tapping "Allow" once.
 
 ### 5. Custom app icon (optional)
 
-Put a 1024×1024 PNG at `assets/icon/icon.png`, then:
+You can change the app icon by replacing the image at assets/icon/icon.png, then running:
 
 ```bash
 dart run flutter_launcher_icons
