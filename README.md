@@ -30,7 +30,7 @@ only thing on the phone.
 ### 1. Clone and install dependencies
 
 ```bash
-git clone <this-repo-url>
+git clone https://github.com/AmaniTrb/senior-dialer.git
 cd CONTACT_APP
 flutter pub get
 ```
