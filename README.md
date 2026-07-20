@@ -7,6 +7,12 @@ something. Just a photo, a name, and a number — tap the photo and it
 calls. Built for use with a kiosk / "kid mode" launcher so it's the
 only thing on the phone.
 
+## Download
+ 
+Just want the app, not the source code? Grab the ready-to-install APK
+from the [Releases page](https://github.com/AmaniTrb/senior-dialer/releases) —
+no need to build anything yourself.
+
 ## Features
 
 - **Contacts, automatically** — pulls directly from the phone's normal
@@ -26,6 +32,9 @@ only thing on the phone.
 ![alt text](image-2.png)
 
 ## Getting started
+
+*(This section is for building from source — if you just want the app
+installed, use the [Releases page](https://github.com/AmaniTrb/senior-dialer/releases) instead.)*
 
 ### 1. Clone and try it out
 
