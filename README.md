@@ -35,41 +35,7 @@ cd CONTACT_APP
 flutter pub get
 ```
 
-### 2. Android permissions
-
-Add these to `android/app/src/main/AndroidManifest.xml`, as a sibling
-of `<application>` (directly under `<manifest>`, not inside it):
-
-```xml
-<uses-permission android:name="android.permission.READ_CONTACTS"/>
-<uses-permission android:name="android.permission.CALL_PHONE"/>
-<uses-permission android:name="android.permission.READ_CALL_LOG"/>
-<uses-permission android:name="android.permission.READ_SMS"/>
-<uses-permission android:name="android.permission.READ_PHONE_NUMBERS"/>
-```
-
-### 3. Core library desugaring
-
-The call-history feature (`call_log` package) requires this. In
-`android/app/build.gradle.kts`, inside `android { ... }`:
-
-```kotlin
-compileOptions {
-    isCoreLibraryDesugaringEnabled = true
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
-}
-```
-
-And add a `dependencies` block:
-
-```kotlin
-dependencies {
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")
-}
-```
-
-### 4. Run it
+### 2. Run it
 
 ```bash
 flutter run
@@ -79,7 +45,7 @@ The app will ask for Contacts, Phone, and SMS permissions the first
 time each relevant screen is opened — someone with reading difficulty
 will need help tapping "Allow" once.
 
-### 5. Custom app icon (optional)
+### 3. Custom app icon (optional)
 
 You can change the app icon by replacing the image at assets/icon/icon.png, then running:
 
@@ -87,7 +53,7 @@ You can change the app icon by replacing the image at assets/icon/icon.png, then
 dart run flutter_launcher_icons
 ```
 
-### 6. Lock it down
+### 4. Lock it down
 
 Use a kiosk-mode / single-app launcher (e.g. a "kid mode" feature, or
 apps like Fully Kiosk) to pin this as the only app the phone can open.
