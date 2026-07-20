@@ -1,0 +1,31 @@
+name: contact_app
+description: A simple picture-based dialer for someone who can't read or write.
+publish_to: 'none'
+version: 1.0.0+1
+ 
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+ 
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_contacts: ^1.1.9+2         # reads contacts (with photos) from the phone
+  flutter_phone_direct_caller: ^2.1.1  # places the call directly, no dialer screen
+  call_log: ^6.0.1                   # reads call history
+  flutter_sms_inbox: ^1.0.3          # reads received text messages (view only)
+  intl: ^0.19.0                      # formats dates/times for display
+  permission_handler: ^11.3.1        # asks for contacts + call + sms permission
+ 
+dev_dependencies:
+  flutter_lints: ^4.0.0
+  flutter_launcher_icons: ^0.14.3
+
+flutter_launcher_icons:
+  android: true
+  image_path: "assets/icon/icon.png"
+ 
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icon/icon.png
+ 
