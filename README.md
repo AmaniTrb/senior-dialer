@@ -1,4 +1,4 @@
-# Senior Dialer
+# Grandma Dialer
 
 A one-tap, picture-based phone app for someone who can't read or write.
 
@@ -21,73 +21,54 @@ only thing on the phone.
 
 ## Screenshots
 
-![alt text](image.png)
-![alt text](image-1.png)
-![alt text](image-2.png)
+*(add a few screenshots here once you have the app running — a photo
+of the main contacts screen is the most useful one)*
 
 ## Getting started
 
-### 1. Clone and install dependencies
+### 1. Clone and try it out
+
+Everything needed is already committed — permissions, Gradle config,
+the works.
 
 ```bash
-git clone <this-repo-url>
-cd CONTACT_APP
+git clone https://github.com/YOUR_USERNAME/grandma-dialer.git
+cd grandma_dialer
 flutter pub get
-```
-
-### 2. Android permissions
-
-Add these to `android/app/src/main/AndroidManifest.xml`, as a sibling
-of `<application>` (directly under `<manifest>`, not inside it):
-
-```xml
-<uses-permission android:name="android.permission.READ_CONTACTS"/>
-<uses-permission android:name="android.permission.CALL_PHONE"/>
-<uses-permission android:name="android.permission.READ_CALL_LOG"/>
-<uses-permission android:name="android.permission.READ_SMS"/>
-<uses-permission android:name="android.permission.READ_PHONE_NUMBERS"/>
-```
-
-### 3. Core library desugaring
-
-The call-history feature (`call_log` package) requires this. In
-`android/app/build.gradle.kts`, inside `android { ... }`:
-
-```kotlin
-compileOptions {
-    isCoreLibraryDesugaringEnabled = true
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
-}
-```
-
-And add a `dependencies` block:
-
-```kotlin
-dependencies {
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")
-}
-```
-
-### 4. Run it
-
-```bash
 flutter run
 ```
+
+`flutter run` is for testing — it needs your computer connected to
+the phone (or an emulator) the whole time.
+
+### 2. Build the real thing to install
+
+Once you're happy with it, build a standalone APK that runs on the
+phone permanently, with no computer attached:
+
+```bash
+flutter build apk --release
+```
+
+This creates the file at `build/app/outputs/flutter-apk/app-release.apk`
+— copy that onto the phone (e.g. via USB, or send it to yourself) and
+install it there. This is what you'd actually leave on someone's phone
+for daily use.
 
 The app will ask for Contacts, Phone, and SMS permissions the first
 time each relevant screen is opened — someone with reading difficulty
 will need help tapping "Allow" once.
 
-### 5. Custom app icon (optional)
+### 3. Custom app icon
 
-Put a 1024×1024 PNG at `assets/icon/icon.png`, then:
+You can change the app icon by replacing the image at
+`assets/icon/icon.png` (1024×1024 PNG works best), then running:
 
 ```bash
 dart run flutter_launcher_icons
 ```
 
-### 6. Lock it down
+### 4. Lock it down
 
 Use a kiosk-mode / single-app launcher (e.g. a "kid mode" feature, or
 apps like Fully Kiosk) to pin this as the only app the phone can open.
@@ -102,6 +83,10 @@ apps like Fully Kiosk) to pin this as the only app the phone can open.
 - Tile sizing is calculated at runtime from the actual screen height,
   and text scales with it too, so it adapts to different screen sizes
   and to portrait/landscape without overflowing.
+- Permissions live in `android/app/src/main/AndroidManifest.xml`, and
+  the core library desugaring setup (required by `call_log`) is in
+  `android/app/build.gradle.kts` — check there if something needs
+  updating for a newer package version.
 
 ## License
 
